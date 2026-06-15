@@ -12,7 +12,7 @@ if f(a) * f(b) >= 0:
 else:
     for i in range(max_iter):
 
-        c = (a + b) / 2
+        c = (a * f(b) - b * f(a)) / (f(b) - f(a))
 
         print(f"Iteration {i+1}: c = {c}")
 
@@ -22,10 +22,9 @@ else:
 
         elif f(a) * f(c) < 0:
             b = c
-
         else:
             a = c
 
         if abs(b - a) < tolerance:
-            print("Approximate root found:", c)
+            print("Approximate root:", c)
             break
